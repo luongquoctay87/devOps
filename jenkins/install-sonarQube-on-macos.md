@@ -1,0 +1,1 @@
+https://techblost.com/how-to-setup-sonarqube-locally-on-mac/

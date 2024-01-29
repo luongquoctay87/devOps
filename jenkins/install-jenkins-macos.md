@@ -1,4 +1,4 @@
-- Install Jenkins on MacOS
+- Install Jenkins on macOS
 https://phoenixnap.com/kb/install-jenkins-on-mac
 
 - Set up pipeline for project
