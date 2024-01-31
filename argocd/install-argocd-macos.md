@@ -8,9 +8,10 @@
 ### 1. Install Argo CD on macOS
 
 ```bash
-$ kubectl apply -n default -f argocd-install.yaml
+$ kubectl create namespace argocd
+$ kubectl apply -n argocd -f argocd-install.yaml
 or
-$ kubectl apply -n default -f argocd-core-install.yaml
+$ kubectl apply -n argocd -f argocd-core-install.yaml
 ```
 
 ### 2. Download Argo CD CLI
@@ -18,21 +19,21 @@ $ kubectl apply -n default -f argocd-core-install.yaml
 $ brew install argocd
 ```
 
-### 3. Access The Argo CD API Server¶
+### 3. Access The Argo CD API Server
 By default, the Argo CD API server is not exposed with an external IP. 
 To access the API server, choose one of the following techniques to expose the Argo CD API server:
 
 - Service Type Load Balancer
 Change the argocd-server service type to LoadBalancer:
     ```bash
-    $ kubectl patch svc argocd-server -n default -p '{"spec": {"type": "LoadBalancer"}}'
+    $ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
     ```
 
 - Port Forwarding:
 
     Kubectl port-forwarding can also be used to connect to the API server without exposing the service.
     ```bash
-    $ kubectl port-forward svc/argocd-server -n default 8283:443
+    $ kubectl port-forward svc/argocd-server -n argocd 8283:443
     ```
 
 - The API server can then be accessed using https://localhost:8283
@@ -41,7 +42,7 @@ Change the argocd-server service type to LoadBalancer:
  The initial password for the admin account is auto-generated and stored as clear text in the field password in a secret named argocd-initial-admin-secret in your Argo CD installation namespace. 
  You can simply retrieve this password using the argocd CLI:
 ```bash
-$ argocd admin initial-password -n default
+$ argocd admin initial-password -n argocd
 ```
 
 Using the username admin and the password from above, login to Argo CD's IP or hostname:
@@ -60,7 +61,7 @@ $ argocd account update-password
 
   First we need to set the current namespace to argocd running the following command:
   ```bash
-  $ kubectl config set-context --current --namespace=default
+  $ kubectl config set-context --current --namespace=argocd
   ```
 
   Create the example guestbook application with the following command:
