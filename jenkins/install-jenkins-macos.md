@@ -44,7 +44,7 @@ $ vim homebrew.mxcl.jenkins-lts.plist
         <key>EnvironmentVariables</key>
         <dict>
         <key>PATH</key>
-        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Docker.app/Contents/Resources/bin/:/Users/hyadav23/Library/Group\ Containers/group.com.docker/Applications/Docker.app/Contents/Resources/bin</string>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Docker.app/Contents/Resources/bin/:/Users/tayluong/Library/Group\ Containers/group.com.docker/Applications/Docker.app/Contents/Resources/bin</string>
         </dict>
 </dict>
 </plist>
